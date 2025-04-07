@@ -10,18 +10,18 @@ RUN apt-get update && apt-get install -y \
     libglib2.0-0 \
     && rm -rf /var/lib/apt/lists/*
 
-# Set working directory
+# Set working directory inside container
 WORKDIR /app
 
 # Copy and install Python dependencies
 COPY requirements.txt ./
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
-# Install colpali-engine from GitHub (latest version > 0.3.1)
+# Install colpali-engine from GitHub
 RUN pip install git+https://github.com/illuin-tech/colpali
 
-# Copy your handler script
-COPY rp_handler.py ./
+# ✅ Copy all Python files (rp_handler.py, inference.py, model_loader.py)
+COPY . ./
 
 # Run the worker
 CMD ["python3", "-u", "rp_handler.py"]
