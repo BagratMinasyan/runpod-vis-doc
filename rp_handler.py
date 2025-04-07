@@ -2,7 +2,7 @@ import runpod
 from PIL import Image
 import base64
 import io
-from .inference import run_inference
+from inference import run_inference
 
 def handler(event):
     input = event["input"]
