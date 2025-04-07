@@ -1,6 +1,6 @@
 import torch
 from PIL import Image
-from .model_loader import load_model
+from model_loader import load_model
 
 model, processor = load_model()
 
