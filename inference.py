@@ -7,12 +7,7 @@ model, processor = load_model()
 def run_inference(images: list[Image.Image], queries: list[str]):
     device = model.device
 
-    # ✅ This is the critical fix
-    batch_images = processor.process_images(
-        images,
-        size={"shortest_edge": 256, "longest_edge": 1024}
-    ).to(device)
-
+    batch_images = processor.process_images(images).to(device)
     batch_queries = processor.process_queries(queries).to(device)
 
     with torch.no_grad():
