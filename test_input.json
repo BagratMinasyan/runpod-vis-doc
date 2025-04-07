@@ -1,0 +1,12 @@
+{
+    "input": {
+      "queries": [
+        "Is attention really all you need?",
+        "What is the amount of bananas farmed in Salvador?"
+      ],
+      "images": [
+        "<BASE64_IMAGE_STRING_1>",
+        "<BASE64_IMAGE_STRING_2>"
+      ]
+    }
+  }
