@@ -14,4 +14,8 @@ def run_inference(images: list[Image.Image], queries: list[str]):
         image_embeddings = model(**batch_images)
         query_embeddings = model(**batch_queries)
 
-    return processor.score_multi_vector(query_embeddings, image_embeddings).tolist()
+    #return processor.score_multi_vector(query_embeddings, image_embeddings).tolist()
+    return {
+        "image_embeddings": image_embeddings.cpu(),
+        "query_embeddings": query_embeddings.cpu()
+    }
