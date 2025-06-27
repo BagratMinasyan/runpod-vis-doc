@@ -4,7 +4,7 @@ from huggingface_hub import snapshot_download
 import torch
 import os
 hf_token = os.getenv("RUNPOD_SECRET_hf_key")
-
+print(hf_token)
 def load_model():
     local_dir = snapshot_download(
         repo_id="Metric-AI/merged_models",
