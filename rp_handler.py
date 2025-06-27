@@ -21,9 +21,9 @@ def handler(event):
 
     response = {}
     if "image_embeddings" in results:
-        response["image_embeddings"] = results["image_embeddings"].tolist()
+        response["image_embeddings"] = results["image_embeddings"]
     if "query_embeddings" in results:
-        response["query_embeddings"] = results["query_embeddings"].tolist()
+        response["query_embeddings"] = results["query_embeddings"]
 
     return response
 
