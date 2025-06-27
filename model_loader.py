@@ -2,6 +2,8 @@ from colpali_engine.models import ColQwen2_5, ColQwen2_5_Processor
 from transformers.utils.import_utils import is_flash_attn_2_available
 from huggingface_hub import snapshot_download
 import torch
+import os
+hf_token = os.getenv("RUNPOD_SECRET_hf_key")
 
 def load_model(hf_token: str):
     local_dir = snapshot_download(
@@ -9,7 +11,7 @@ def load_model(hf_token: str):
         repo_type="model",
         allow_patterns="exp18/*",
         local_dir="merged_model",
-        token=hf_token,  
+        token=hf_token  
     )
 
     model_path = f"{local_dir}/exp18/model"
