@@ -5,7 +5,7 @@ import torch
 import os
 hf_token = os.getenv("RUNPOD_SECRET_hf_key")
 
-def load_model(hf_token: str):
+def load_model():
     local_dir = snapshot_download(
         repo_id="Metric-AI/merged_models",
         repo_type="model",
